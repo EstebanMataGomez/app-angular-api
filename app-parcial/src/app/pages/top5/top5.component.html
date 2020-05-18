@@ -1,0 +1,42 @@
+<ng-select class="m-4"  
+           [items]="defaultBindingsList"
+           [(ngModel)]="selectedDimension"
+           (change)="onChangeDimension($event)"
+           [clearable]="false">
+</ng-select>
+
+<ng-select
+    [items]="customer$ | async"
+    [multiple]="true"
+    [closeOnSelect]="true"
+    [searchable]="true"
+    placeholder="Seleccione un cliente de la lista"
+    (change)="onChangeClient($event)"
+    [(ngModel)]="selectedCustomer">
+</ng-select>
+
+<ng-select
+    [items]="year$ | async"
+    [multiple]="true"
+    [closeOnSelect]="true"
+    [searchable]="false"
+    placeholder="Seleccione un año de la lista"
+    (change)="onChangeYear($event)"
+    [(ngModel)]="selectedYear">
+</ng-select>
+
+<ng-select
+    [items]="month$ | async"
+    [multiple]="true"
+    [closeOnSelect]="true"
+    [searchable]="false"
+    placeholder="Seleccione un mes de la lista"
+    (change)="onChangeMonth($event)"
+    [(ngModel)]="selectedMonth">
+</ng-select>
+
+<app-pie-chart
+    [pieChartLabels]="dataDimension"
+    [pieChartData]="dataValues">
+</app-pie-chart>
+
